@@ -1,106 +1,21 @@
-import { StyleSheet, View, Image, FlatList, Text, SafeAreaView, TextInput, useWindowDimensions, Dimensions, TouchableOpacity, ImageBackground, KeyboardAvoidingView } from 'react-native'
-//from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { Text,View } from "react-native-animatable";
+import { SafeAreaView } from "react-native-safe-area-context";
+import Registration from "./src/screen/registration";
+import Home from './src/screen/Home'
+import Secound from './src/screen/SecoundPage'
+import { Feadback } from "./src/screen/Feadback";
+import FigmaA from "./src/screen/FigmaA";
+import First from "./src/screen/FirstPage";
+import Liner from "./src/screen/linerGradien";
 
-const arr = ["apple", "lichi", "mango"]
-const { width, height } = Dimensions.get("window")
-
-const App = () => {
-  return (
-    <SafeAreaView style={Styles.container}>
-      <KeyboardAwareScrollView>
-      <ImageBackground style={{ flex: 1 }}
-        imageStyle={{ flex: 1 }}
-        source={{ uri: "https://i.pinimg.com/236x/da/57/72/da57724c332bb06762444b5895ac364f.jpg" }} >
-        <View style={Styles.main}>
-          <Image style={{ resizeMode: "contain", height: 200, width: 200, alignSelf: "center", marginBottom: 10 }}
-            source={{ uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_pgoHuvuMGt_8ovZZra-dq4ZuQCHA3XsBRw&s" }} />
-          <Text style={Styles.login}>LOGIN</Text>
-          <TextInput placeholder="username" style={Styles.username}></TextInput>
-          <TextInput placeholder="password" secureTextEntry={true} style={Styles.username}></TextInput>
-          <TouchableOpacity style={Styles.btn}>
-            <Text style={Styles.log}>LOGIN</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={Styles.down}>
-            <Text style={Styles.forget}>forget password</Text>
-            <Text style={Styles.create}>create account</Text>
-            </TouchableOpacity> 
-        </View>
-      </ImageBackground>
-      </KeyboardAwareScrollView>
+const App=()=>{
+  return(
+     <SafeAreaView style={{flex:1,backgroundColor:"#f5f5f5"}}>
+      <Liner />
     </SafeAreaView>
-
+    
   )
 }
 
 export default App
-
-const Styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#dadada",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  text: {
-    color: "black",
-  },
-  username: {
-    height: 50,
-    //width : 50,
-    borderRadius: 10,
-    color: "black",
-    backgroundColor: "white",
-    padding: 10,
-    marginBottom: 10,
-    width: width-10,
-
-  },
-  login: {
-    fontSize: 25,
-    fontWeight: "bold",
-    marginBottom: 10,
-  },
-  forget: {
-    fontSize: 18,
-    color: "blue",
-
-  },
-  create: {
-    color: "blue",
-    fontSize: 18,
-
-  },
-  down: {
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  btn: {
-    height: 40,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 10,
-    marginBottom: 10,
-    backgroundColor: "blue",
-    borderRadius: 10,
-    width : width - 10,
-
-  },
-  log: {
-    color: "#fff",
-    fontSize: 20,
-    fontWeight : "bold",
-
-  },
-  main: {
-    alignItems: "center",
-    justifyContent: "center",
-   // backgroundColor: "#555",
-    padding: 10,
-   // borderRadius: 10,
-   width:width,
-   height:height,
-  }
-
-
-})
